@@ -1,14 +1,6 @@
 import assert from "assert";
 import { setRef, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
-
 import { Poppins } from "next/font/google";
 import Head from "next/head";
 import {
@@ -28,21 +20,19 @@ import {
   getDocs,
   getFirestore,
 } from "firebase/firestore";
-import { use, useEffect, useState } from "react";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyB2Y-vhj6-2PG5HO7LYxnK-iWvlJ9U6ABI",
-  authDomain: "customersatisfaction-4bce2.firebaseapp.com",
+  apiKey: process.env.APIKEY,
+  authDomain: process.env.DOMAIN,
+  databaseURL: process.env.DBURL,
   projectId: "customersatisfaction-4bce2",
-  storageBucket: "customersatisfaction-4bce2.appspot.com",
-  messagingSenderId: "227293994539",
-  appId: "1:227293994539:web:8df8bcdab5e5996345946e",
-  databaseURL:
-    "https://customersatisfaction-4bce2-default-rtdb.firebaseio.com/",
+  storageBucket: process.env.BUCKET,
+  messagingSenderId: process.env.MSID,
+  appId: process.env.AID,
 };
 
 const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 enum Location {
   Burmarrad = "Burmarrad",
@@ -60,9 +50,8 @@ const submitReview = async (rating: number, location: Location) => {
     const docRef = await addDoc(collection(db, "Reviews"), {
       date_created: new Date(),
       rating: rating,
-      location: selectedLocation,
+      location: location,
     });
-    console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
   }

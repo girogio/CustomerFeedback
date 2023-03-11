@@ -12,29 +12,10 @@ import Paper from "@mui/material/Paper";
 import { Poppins } from "next/font/google";
 import Head from "next/head";
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
+import { db } from "./index";
 
-import { initializeApp } from "firebase/app";
-import {
-  collection,
-  DocumentData,
-  getDocs,
-  getFirestore,
-} from "firebase/firestore";
-import { use, useEffect, useState } from "react";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyB2Y-vhj6-2PG5HO7LYxnK-iWvlJ9U6ABI",
-  authDomain: "customersatisfaction-4bce2.firebaseapp.com",
-  projectId: "customersatisfaction-4bce2",
-  storageBucket: "customersatisfaction-4bce2.appspot.com",
-  messagingSenderId: "227293994539",
-  appId: "1:227293994539:web:8df8bcdab5e5996345946e",
-  databaseURL:
-    "https://customersatisfaction-4bce2-default-rtdb.firebaseio.com/",
-};
-
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
+import { collection, DocumentData, getDocs } from "firebase/firestore";
+import { useState } from "react";
 
 enum Location {
   Burmarrad = "Burmarrad",
