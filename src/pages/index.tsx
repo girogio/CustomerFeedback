@@ -48,8 +48,8 @@ enum Location {
 }
 
 export default function Home() {
-  const [faceMenu, setFaceMenu] = useState(false);
-  const [ctaMenu, setCtaMenu] = useState(true);
+  const [faceMenu, setFaceMenu] = useState(true);
+  const [ctaMenu, setCtaMenu] = useState(false);
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState("");
 
