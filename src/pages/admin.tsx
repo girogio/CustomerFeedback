@@ -1,18 +1,9 @@
-import assert from "assert";
-import { Button, setRef, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 
 import { Poppins } from "next/font/google";
 import Head from "next/head";
-const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 import { db } from "./index";
+const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
 import { collection, DocumentData, getDocs } from "firebase/firestore";
 import { useState } from "react";
