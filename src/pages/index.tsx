@@ -23,29 +23,10 @@ import {
 } from "react-icons/bs/";
 const poppins = Poppins({ subsets: ["latin"], weight: "400" });
 
-import { initializeApp } from "firebase/app";
-import { addDoc, collection, getFirestore } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
+import { db } from "./models/reviews";
 
-const firebaseConfig = {
-  apiKey: process.env.APIKEY,
-  authDomain: process.env.DOMAIN,
-  databaseURL: process.env.DBURL,
-  projectId: "customersatisfaction-4bce2",
-  storageBucket: process.env.BUCKET,
-  messagingSenderId: process.env.MSID,
-  appId: process.env.AID,
-};
-
-const app = initializeApp(firebaseConfig);
-export const db = getFirestore(app);
-
-enum Location {
-  Burmarrad = "Burmarrad",
-  Gzira = "Gzira",
-  Sliema = "Sliema",
-  Valletta = "Valletta",
-  Bugibba = "Bugibba",
-}
+import { Location } from "./models/common";
 
 export default function Home() {
   const [faceMenu, setFaceMenu] = useState(true);

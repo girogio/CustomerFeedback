@@ -12,7 +12,7 @@ interface Rating {
 }
 
 export interface Review {
-  date_created: Date;
+  date_created?: Date;
   rating: number;
   location: Location;
 }
